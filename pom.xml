@@ -7,7 +7,6 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<basedir>${basedir}</basedir>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -75,42 +74,42 @@
 			<artifactId>gdata-client</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-client-1.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-client-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>gdata-contacts</groupId>
 			<artifactId>gdata-contacts</artifactId>
 			<version>3.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-contacts-3.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-contacts-3.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>gdata-core</groupId>
 			<artifactId>gdata-core</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-core-1.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-core-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>gdata-media</groupId>
 			<artifactId>gdata-media</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-media-1.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-media-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>gdata-photos</groupId>
 			<artifactId>gdata-photos</artifactId>
 			<version>2.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-photos-2.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-photos-2.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>gdata-photos-meta</groupId>
 			<artifactId>gdata-photos-meta</artifactId>
 			<version>2.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/libs/gdata-photos-meta-2.0.jar</systemPath>
+			<systemPath>${project.basedir}/libs/gdata-photos-meta-2.0.jar</systemPath>
 		</dependency>
 	</dependencies>
 	<build>
