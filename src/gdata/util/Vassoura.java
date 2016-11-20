@@ -44,7 +44,8 @@ public class Vassoura {
 					Date dateFromFile = null;
 
 					final Matcher matcherPhoto = Pattern.compile("^\\w{3}_(\\d{8})_(\\d{6})").matcher(arquivo);
-					final Matcher matcherScreenshot = Pattern.compile("^Screenshot_(\\d{4}-\\d{2}-\\d{2})-(\\d{2}-\\d{2}-\\d{2})").matcher(arquivo);
+					final Matcher matcherScreenshot = Pattern
+							.compile("^Screenshot_(\\d{4}-\\d{2}-\\d{2})-(\\d{2}-\\d{2}-\\d{2})").matcher(arquivo);
 					final boolean isPhoto = matcherPhoto.find();
 					final boolean isScreenshot = matcherScreenshot.find();
 

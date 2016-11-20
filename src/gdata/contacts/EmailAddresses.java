@@ -39,7 +39,8 @@ public class EmailAddresses extends ChangeContact implements Callable<ContactEnt
 				}
 
 				final String dominio = this.getDominio(beforeSanitize); // Dominio
-				final String afterSanitize = beforeSanitize.toLowerCase().replaceAll(Constantes.REGEX_SANITIZE_EMAIL, ""); // Sanitizado
+				final String afterSanitize = beforeSanitize.toLowerCase().replaceAll(Constantes.REGEX_SANITIZE_EMAIL,
+						""); // Sanitizado
 				final String rel = email.getRel(); // Rel
 				final boolean isPrimary = email.getPrimary(); // Primary
 
@@ -155,8 +156,8 @@ public class EmailAddresses extends ChangeContact implements Callable<ContactEnt
 					final String loginX = emailGoogleX.getAddress().replace(dominioX, ""); // Login
 					final String loginY = emailGoogleY.getAddress().replace(dominioY, ""); // Login
 
-					if (loginX.length() < loginY.length()
-							&& loginX.replaceAll(Constantes.REGEX_PONTO, "").equals(loginY.replaceAll(Constantes.REGEX_PONTO, "")) && !loginX.equals(loginY)) {
+					if (loginX.length() < loginY.length() && loginX.replaceAll(Constantes.REGEX_PONTO, "")
+							.equals(loginY.replaceAll(Constantes.REGEX_PONTO, "")) && !loginX.equals(loginY)) {
 						listToDelete.add(emailGoogleX);
 					}
 				}

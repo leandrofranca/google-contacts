@@ -48,7 +48,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 		return super.call();
 	}
 
-	private void corrigeLabelTelefoneCelular(final PhoneNumber phoneNumber, final String telefone, final String label, final String operadoraTipo) {
+	private void corrigeLabelTelefoneCelular(final PhoneNumber phoneNumber, final String telefone, final String label,
+			final String operadoraTipo) {
 		if (this.isTelefoneCelular(telefone)) {
 			if (operadoraTipo != null) {
 				phoneNumber.setLabel(operadoraTipo);
@@ -60,7 +61,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 		}
 	}
 
-	private void corrigeLabelTelefoneFixo(final PhoneNumber phoneNumber, final String telefone, final String label, final String operadoraTipo) {
+	private void corrigeLabelTelefoneFixo(final PhoneNumber phoneNumber, final String telefone, final String label,
+			final String operadoraTipo) {
 		if (this.isTelefoneFixo(telefone)) {
 			if (operadoraTipo != null) {
 				phoneNumber.setLabel(operadoraTipo);
@@ -73,8 +75,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 	}
 
 	private void corrigirContatoSemTelefone() {
-		if (!this.getEntry().hasPhoneNumbers() && this.getEntry().hasGroupMembershipInfos()
-				&& this.getEntry().getGroupMembershipInfos().remove(new GroupMembershipInfo(false, Groups.grupoMeusContatosId))) {
+		if (!this.getEntry().hasPhoneNumbers() && this.getEntry().hasGroupMembershipInfos() && this.getEntry()
+				.getGroupMembershipInfos().remove(new GroupMembershipInfo(false, Groups.grupoMeusContatosId))) {
 			StringBuilder info;
 			info = new StringBuilder();
 			info.append("Removendo Contato ");
@@ -97,7 +99,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 
 			final URL url = new URL(targetURL);
 			this.aplicarCertificado();
-			// final Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("192.168.90.4", 9090));
+			// final Proxy proxy = new Proxy(Proxy.Type.HTTP, new
+			// InetSocketAddress("192.168.90.4", 9090));
 			connection = (HttpsURLConnection) url.openConnection();
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -269,14 +272,16 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 		if (telefone == null) {
 			return false;
 		}
-		return telefone.startsWith("9") || telefone.startsWith("8") || telefone.startsWith("7") || telefone.startsWith("6") || telefone.startsWith("5");
+		return telefone.startsWith("9") || telefone.startsWith("8") || telefone.startsWith("7")
+				|| telefone.startsWith("6") || telefone.startsWith("5");
 	}
 
 	private boolean isTelefoneFixo(final String telefone) {
 		if (telefone == null) {
 			return false;
 		}
-		return telefone.startsWith("2") || telefone.startsWith("3") && !telefone.startsWith("300") || telefone.startsWith("4") && !telefone.startsWith("400");
+		return telefone.startsWith("2") || telefone.startsWith("3") && !telefone.startsWith("300")
+				|| telefone.startsWith("4") && !telefone.startsWith("400");
 	}
 
 	private boolean isTelefoneGratuito(final String telefone) {
@@ -374,7 +379,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 				// Capturando informações
 				final boolean isPrimary = phoneNumber.getPrimary();
 				final String beforeSanitize = phoneNumber.getPhoneNumber();
-				final String afterSanitize = beforeSanitize.replaceAll(Constantes.REGEX_CARACTERES_INVALIDOS_TELEFONE, "");
+				final String afterSanitize = beforeSanitize.replaceAll(Constantes.REGEX_CARACTERES_INVALIDOS_TELEFONE,
+						"");
 				final String label = phoneNumber.getLabel() == null ? "" : phoneNumber.getLabel();
 				final String rel = phoneNumber.getRel() == null ? "" : phoneNumber.getRel();
 
@@ -397,7 +403,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 						phoneNumber.setPhoneNumber(afterSanitize);
 					}
 
-				} else if ((matcher = Pattern.compile(Constantes.REGEX_ZERO_OPERADORA_DDD_TELEFONE).matcher(afterSanitize)).find()) {
+				} else if ((matcher = Pattern.compile(Constantes.REGEX_ZERO_OPERADORA_DDD_TELEFONE)
+						.matcher(afterSanitize)).find()) {
 
 					// Com operadora e DDD
 					// 0 + Operadora + DDD + Telefone
@@ -419,13 +426,15 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 					}
 
 					if (this.isTelefoneServico(telefone)) {
-						// Telefone de serviço não tem DDD. Ex.: 4002-0022 (Bradesco)
+						// Telefone de serviço não tem DDD. Ex.: 4002-0022
+						// (Bradesco)
 						phoneNumber.setPhoneNumber(this.formatarTelefone(telefone));
 					} else if (this.isDdd9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 8) {
 						// Acrescenta nono dígito
 						telefone = "9" + telefone;
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
-					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 9) {
+					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone)
+							&& telefone.length() == 9) {
 						// Remove nono dígito
 						telefone = telefone.substring(1);
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
@@ -434,7 +443,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
 					}
 
-				} else if ((matcher = Pattern.compile(Constantes.REGEX_ZERO_DDD_TELEFONE).matcher(afterSanitize)).find()) {
+				} else if ((matcher = Pattern.compile(Constantes.REGEX_ZERO_DDD_TELEFONE).matcher(afterSanitize))
+						.find()) {
 
 					// Com 0, DDD e Sem operadora
 					// 0 + DDD + Telefone
@@ -455,13 +465,15 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 					}
 
 					if (this.isTelefoneServico(telefone)) {
-						// Telefone de serviço não tem DDD. Ex.: 4002-0022 (Bradesco)
+						// Telefone de serviço não tem DDD. Ex.: 4002-0022
+						// (Bradesco)
 						phoneNumber.setPhoneNumber(this.formatarTelefone(telefone));
 					} else if (this.isDdd9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 8) {
 						// Acrescenta nono dígito
 						telefone = "9" + telefone;
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
-					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 9) {
+					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone)
+							&& telefone.length() == 9) {
 						// Remove nono dígito
 						telefone = telefone.substring(1);
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
@@ -470,7 +482,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
 					}
 
-				} else if ((matcher = Pattern.compile(Constantes.REGEX_DDI55_DDD_TELEFONE).matcher(afterSanitize)).find()) {
+				} else if ((matcher = Pattern.compile(Constantes.REGEX_DDI55_DDD_TELEFONE).matcher(afterSanitize))
+						.find()) {
 
 					// Com DDI, DDD e sem operadora
 					// DDI + DDD + Telefone
@@ -491,13 +504,15 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 					}
 
 					if (this.isTelefoneServico(telefone)) {
-						// Telefone de serviço não tem DDD. Ex.: 4002-0022 (Bradesco)
+						// Telefone de serviço não tem DDD. Ex.: 4002-0022
+						// (Bradesco)
 						phoneNumber.setPhoneNumber(this.formatarTelefone(telefone));
 					} else if (this.isDdd9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 8) {
 						// Acrescenta nono dígito
 						telefone = "9" + telefone;
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
-					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 9) {
+					} else if (this.isDddNot9Digitos(ddd) && this.isTelefoneCelular(telefone)
+							&& telefone.length() == 9) {
 						// Remove nono dígito
 						telefone = telefone.substring(1);
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
@@ -506,7 +521,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 						phoneNumber.setPhoneNumber(this.formatarTelefone(zero, ddd, telefone));
 					}
 
-				} else if ((matcher = Pattern.compile(Constantes.REGEX_DDI_DDD_TELEFONE).matcher(afterSanitize)).find()) {
+				} else if ((matcher = Pattern.compile(Constantes.REGEX_DDI_DDD_TELEFONE).matcher(afterSanitize))
+						.find()) {
 
 					// Com DDI, DDD e sem operadora
 					// DDI + DDD + Telefone
@@ -545,7 +561,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 					}
 
 					if (this.isTelefoneServico(telefone)) {
-						// Telefone de serviço não tem DDD. Ex.: 4002-0022 (Bradesco)
+						// Telefone de serviço não tem DDD. Ex.: 4002-0022
+						// (Bradesco)
 						phoneNumber.setPhoneNumber(this.formatarTelefone(telefone));
 					} else if (this.isDdd9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 8) {
 						// Acrescenta nono dígito
@@ -575,7 +592,8 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 					}
 
 					if (this.isTelefoneServico(telefone)) {
-						// Telefone de serviço não tem DDD. Ex.: 4002-0022 (Bradesco)
+						// Telefone de serviço não tem DDD. Ex.: 4002-0022
+						// (Bradesco)
 						phoneNumber.setPhoneNumber(this.formatarTelefone(telefone));
 					} else if (this.isDdd9Digitos(ddd) && this.isTelefoneCelular(telefone) && telefone.length() == 8) {
 						// Acrescenta nono dígito
@@ -743,7 +761,6 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 				info.append("\"");
 				info.append(phoneNumberRepetido.getPhoneNumber());
 				info.append("\"");
-				info.append(this.getNames().getFullName());
 				LOGGER.info(info.toString());
 
 				this.setChanged(true);

@@ -51,8 +51,10 @@ public class Contacts {
 
 		final Query query = new Query(new URL(Constantes.URL_CONTATOS));
 		query.setMaxResults(Short.MAX_VALUE);
-		// query.setUpdatedMin(new DateTime(new GregorianCalendar(2013, 6, 25, 0, 0, 0).getTime()));
-		// query.setUpdatedMax(new DateTime(new GregorianCalendar(2013, 6, 26, 0, 0, 0).getTime()));
+		// query.setUpdatedMin(new DateTime(new GregorianCalendar(2013, 6, 25,
+		// 0, 0, 0).getTime()));
+		// query.setUpdatedMax(new DateTime(new GregorianCalendar(2013, 6, 26,
+		// 0, 0, 0).getTime()));
 		query.setStringCustomParameter("orderby", "lastmodified");
 		query.setStringCustomParameter("showdeleted", "false");
 		query.setStringCustomParameter("sortorder", "ascending");
@@ -104,13 +106,16 @@ public class Contacts {
 			// Listando informações adicionais //
 			// /////////////////////////////// //
 
-			// final BillingInformations billingInformations = new BillingInformations(entry);
+			// final BillingInformations billingInformations = new
+			// BillingInformations(entry);
 			// listaRetornoThread.add(executorService.submit(billingInformations));
 
-			// final PostalAddresses postalAddresses = new PostalAddresses(entry);
+			// final PostalAddresses postalAddresses = new
+			// PostalAddresses(entry);
 			// listaRetornoThread.add(executorService.submit(postalAddresses));
 
-			// final StructuredPostalAddresses structuredPostalAddresses = new StructuredPostalAddresses(entry);
+			// final StructuredPostalAddresses structuredPostalAddresses = new
+			// StructuredPostalAddresses(entry);
 			// listaRetornoThread.add(executorService.submit(structuredPostalAddresses));
 
 			// Limpa notas do contato

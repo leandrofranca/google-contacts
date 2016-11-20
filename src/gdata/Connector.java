@@ -35,8 +35,8 @@ public class Connector {
 	private static HttpTransport HTTP_TRANSPORT;
 
 	/** Global instance of the scopes required by this quickstart. */
-	private static final List<String> SCOPES = Arrays.asList(CalendarScopes.CALENDAR, DriveScopes.DRIVE, "https://www.google.com/m8/feeds/",
-			"https://picasaweb.google.com/data/");
+	private static final List<String> SCOPES = Arrays.asList(CalendarScopes.CALENDAR, DriveScopes.DRIVE,
+			"https://www.google.com/m8/feeds/", "https://picasaweb.google.com/data/");
 
 	private static GoogleService service = null;
 
@@ -52,15 +52,15 @@ public class Connector {
 	}
 
 	private static Credential authorize(final String username) throws Exception {
-		DATA_STORE_FACTORY = new FileDataStoreFactory(new java.io.File(System.getProperty("user.home"), ".credentials/" + Constantes.APPLICATION_NAME + "/"
-				+ username));
+		DATA_STORE_FACTORY = new FileDataStoreFactory(new java.io.File(System.getProperty("user.home"),
+				".credentials/" + Constantes.APPLICATION_NAME + "/" + username));
 
 		System.setProperty("java.net.useSystemProxies", "false");
 
 		final GoogleClientSecrets clientSecret = GoogleClientSecrets.load(JSON_FACTORY,
 				new InputStreamReader(Connector.class.getResourceAsStream("/client_secret.json")));
-		final GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY, clientSecret, SCOPES)
-				.setDataStoreFactory(DATA_STORE_FACTORY).build();
+		final GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY,
+				clientSecret, SCOPES).setDataStoreFactory(DATA_STORE_FACTORY).build();
 		return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize(username);
 	}
 
@@ -95,7 +95,8 @@ public class Connector {
 			return null;
 		}
 
-		final Drive serviceDrive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential).setApplicationName(Constantes.APPLICATION_NAME).build();
+		final Drive serviceDrive = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
+				.setApplicationName(Constantes.APPLICATION_NAME).build();
 		return serviceDrive;
 	}
 

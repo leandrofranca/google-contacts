@@ -53,28 +53,27 @@ public class Constantes {
 	public static final String LABEL_SERVICO = "Serviço";
 	public static final String LABEL_RAMAL = "Ramal";
 
-	public static final List<String> EMAILS_PESSOAIS = Arrays.asList(new String[] { "@bol.com.br", "@gmail.com", "@googlegroups.com", "@googlemail.com",
-			"@groups.facebook.com", "@hotmail.com", "@hotmail.de", "@ibest.com.br", "@ig.com.br", "@live.com", "@misseroni.com", "@msgamestudios.com",
-			"@msn.com", "@oi.com.br", "@outlook.com", "@pop.com.br", "@si.unifacs.br", "@takenami.com.br", "@tanajura.com.br", "@terra.com.br", "@unifacs.br",
-			"@unifacs.edu.br", "@uol.com.br", "@vergasta.com.br", "@walla.com", "@yahoo.com", "@yahoo.com.br", "@rasea.org", "@fespinheira.com",
-			"@flaviocampos.com", "@bot.talk.google.com", "@diegocardoso.com.br", "@hotmail.com.br", "@leandrorangel.com.br", "@phydias.com.br" });
+	public static final List<String> EMAILS_PESSOAIS = Arrays
+			.asList(new String[] { "@bol.com.br", "@gmail.com", "@googlegroups.com", "@googlemail.com",
+					"@groups.facebook.com", "@hotmail.com", "@hotmail.de", "@ibest.com.br", "@ig.com.br", "@live.com",
+					"@misseroni.com", "@msgamestudios.com", "@msn.com", "@oi.com.br", "@outlook.com", "@pop.com.br",
+					"@si.unifacs.br", "@takenami.com.br", "@tanajura.com.br", "@terra.com.br", "@unifacs.br",
+					"@unifacs.edu.br", "@uol.com.br", "@vergasta.com.br", "@walla.com", "@yahoo.com", "@yahoo.com.br",
+					"@rasea.org", "@fespinheira.com", "@flaviocampos.com", "@bot.talk.google.com",
+					"@diegocardoso.com.br", "@hotmail.com.br", "@leandrorangel.com.br", "@phydias.com.br" });
 
 	public static final String BATCH_DELETE = "delete";
 
 	public static final String BATCH_UPDATE = "update";
 
-	/**
-	 *
-	 * Até 31 de dezembro de 2016 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55, 61, 62, 63, 64, 65, 66, 67, 68, 69
-	 *
-	 */
+	public static final Integer[] ddd9Digitos = new Integer[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 27, 28,
+			31, 32, 33, 34, 35, 37, 38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55, 61, 62, 63, 64, 65, 66, 67,
+			68, 69, 71, 73, 74, 75, 77, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91, 92, 93, 94, 95, 96, 97, 98, 99 };
 
-	public static final Integer[] ddd9Digitos = new Integer[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 27, 28, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91,
-		92, 94, 95, 96, 97, 98, 99, 31, 32, 33, 34, 35, 37, 38, 71, 73, 74, 75, 77, 79 };
+	public static final Integer[] dddNot9Digitos = new Integer[] {};
 
-	public static final Integer[] dddNot9Digitos = new Integer[] { 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55, 61, 62, 63, 64, 65, 66, 67, 68, 69 };
-
-	public static final String[] siglas = new String[] { "IPRAJ", "SKY", "UNIFACS", "TAO", "BNB", "ETL", "TI", "BV", "BB", "ITIL", "PMP" };
+	public static final String[] siglas = new String[] { "IPRAJ", "SKY", "UNIFACS", "TAO", "BNB", "ETL", "TI", "BV",
+			"BB", "ITIL", "PMP" };
 
 	public static Map<String, String> mimeTypes = new HashMap<String, String>();
 

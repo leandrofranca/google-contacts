@@ -27,7 +27,8 @@ public class BatchRequests {
 		// Recursividade para tratar lotes
 		while (contactFeedBatch.getEntries().size() > 100) {
 			// Criando lista secundária
-			final List<ContactEntry> subList = new ArrayList<ContactEntry>(contactFeedBatch.getEntries().subList(0, 100));
+			final List<ContactEntry> subList = new ArrayList<ContactEntry>(
+					contactFeedBatch.getEntries().subList(0, 100));
 			// Criando feed parcial
 			final ContactFeed partialFeed = new ContactFeed();
 			partialFeed.setEntries(subList);
@@ -37,7 +38,8 @@ public class BatchRequests {
 			contactFeedBatch.getEntries().removeAll(subList);
 		}
 
-		final ContactFeed responseFeed = Contacts.service.batch(new URL(Constantes.URL_BATCH_CONTATOS), contactFeedBatch);
+		final ContactFeed responseFeed = Contacts.service.batch(new URL(Constantes.URL_BATCH_CONTATOS),
+				contactFeedBatch);
 
 		for (final ContactEntry entry : responseFeed.getEntries()) {
 

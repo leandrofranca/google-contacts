@@ -47,7 +47,8 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 /**
- * Class used to add the server's certificate to the KeyStore with your trusted certificates.
+ * Class used to add the server's certificate to the KeyStore with your trusted
+ * certificates.
  */
 public class InstallCert {
 
@@ -177,7 +178,9 @@ public class InstallCert {
 		public X509Certificate[] getAcceptedIssuers() {
 
 			/**
-			 * This change has been done due to the following resolution advised for Java 1.7+ http://infposs.blogspot.kr/2013/06/installcert-and-java-7.html
+			 * This change has been done due to the following resolution advised
+			 * for Java 1.7+
+			 * http://infposs.blogspot.kr/2013/06/installcert-and-java-7.html
 			 **/
 
 			return new X509Certificate[0];

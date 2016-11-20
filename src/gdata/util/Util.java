@@ -25,7 +25,8 @@ public class Util {
 
 	public String sanitize(final String str) {
 		String afterSanitize = "";
-		final String beforeSanitize = str.replaceAll(Constantes.REGEX_PONTO, " ").replaceAll(Constantes.REGEX_CARACTERES_SANITIZAVEIS, "")
+		final String beforeSanitize = str.replaceAll(Constantes.REGEX_PONTO, " ")
+				.replaceAll(Constantes.REGEX_CARACTERES_SANITIZAVEIS, "")
 				.replaceAll(Constantes.REGEX_DOIS_ESPACOS, " ");
 
 		final String[] palavras = beforeSanitize.split(Constantes.REGEX_ESPACO);
@@ -34,8 +35,9 @@ public class Util {
 			if (palavras[i].length() > 3 && !this.isSigla(palavras[i])) {
 				afterSanitize = afterSanitize.concat(WordUtils.capitalizeFully(palavras[i]));
 			} else if (!this.isSigla(palavras[i])) {
-				if (palavras[i].equalsIgnoreCase("e") || palavras[i].equalsIgnoreCase("da") || palavras[i].equalsIgnoreCase("de")
-						|| palavras[i].equalsIgnoreCase("do") || palavras[i].equalsIgnoreCase("dos") || palavras[i].equalsIgnoreCase("das")) {
+				if (palavras[i].equalsIgnoreCase("e") || palavras[i].equalsIgnoreCase("da")
+						|| palavras[i].equalsIgnoreCase("de") || palavras[i].equalsIgnoreCase("do")
+						|| palavras[i].equalsIgnoreCase("dos") || palavras[i].equalsIgnoreCase("das")) {
 					afterSanitize = afterSanitize.concat(palavras[i].toLowerCase());
 				} else {
 					afterSanitize = afterSanitize.concat(palavras[i]);

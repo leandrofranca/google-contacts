@@ -106,7 +106,8 @@ public class Organizations extends ChangeContact implements Callable<ContactEntr
 					LOGGER.info(info.toString());
 				}
 
-				if (organization.hasPrimary() && organization.getPrimary() && this.getEntry().getOrganizations().size() > 1) {
+				if (organization.hasPrimary() && organization.getPrimary()
+						&& this.getEntry().getOrganizations().size() > 1) {
 					organization.setPrimary(false);
 					info = new StringBuilder();
 					info.append("Removendo Organization primário do Contato ");
@@ -114,7 +115,8 @@ public class Organizations extends ChangeContact implements Callable<ContactEntr
 					LOGGER.info(info.toString());
 
 					this.setChanged(true);
-				} else if (organization.hasPrimary() && !organization.getPrimary() && this.getEntry().getOrganizations().size() == 1) {
+				} else if (organization.hasPrimary() && !organization.getPrimary()
+						&& this.getEntry().getOrganizations().size() == 1) {
 					organization.setPrimary(true);
 					info = new StringBuilder();
 					info.append("Colocando único Organization como primário do Contato ");

@@ -19,12 +19,15 @@ public class StructuredPostalAddresses extends ChangeContact implements Callable
 		StringBuilder info;
 
 		if (this.getEntry().hasStructuredPostalAddresses()) {
-			for (final StructuredPostalAddress structuredPostalAddress : this.getEntry().getStructuredPostalAddresses()) {
+			for (final StructuredPostalAddress structuredPostalAddress : this.getEntry()
+					.getStructuredPostalAddresses()) {
 
 				final String postalAddress = structuredPostalAddress.getFormattedAddress().getValue();
 
-				// String postalAddressAlterado = postalAddress.replaceAll("[\r\n]", " - ");
-				// postalAddressAlterado = postalAddress.replaceAll("\\s-\\s$", "");
+				// String postalAddressAlterado =
+				// postalAddress.replaceAll("[\r\n]", " - ");
+				// postalAddressAlterado = postalAddress.replaceAll("\\s-\\s$",
+				// "");
 				// structuredPostalAddress.getFormattedAddress().setValue(postalAddressAlterado);
 				// this.setChanged(true);
 

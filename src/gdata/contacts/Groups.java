@@ -46,7 +46,8 @@ public class Groups extends ChangeContact implements Callable<ContactEntry> {
 			grupoMeusContatosId = Util.getInstance().obterChavePorValorMap(todosGrupos, Constantes.GRUPO_MY_CONTACTS);
 		}
 		if (todosGrupos.containsValue(Constantes.GRUPO_DESCONHECIDOS)) {
-			grupoDesconhecidosId = Util.getInstance().obterChavePorValorMap(todosGrupos, Constantes.GRUPO_DESCONHECIDOS);
+			grupoDesconhecidosId = Util.getInstance().obterChavePorValorMap(todosGrupos,
+					Constantes.GRUPO_DESCONHECIDOS);
 		} else {
 			final StringBuilder error = new StringBuilder();
 			error.append("Grupo \"");

@@ -84,7 +84,8 @@ public class Names extends ChangeContact implements Callable<ContactEntry> {
 		if (!this.getEntry().hasName() || this.isEmpty()) {
 			String afterName = "";
 			if (this.getEntry().hasEmailAddresses()) {
-				afterName = Constantes.PREFIXO_POS_CORRECAO + this.getUtil().sanitize(this.getEntry().getEmailAddresses().get(0).getAddress());
+				afterName = Constantes.PREFIXO_POS_CORRECAO
+						+ this.getUtil().sanitize(this.getEntry().getEmailAddresses().get(0).getAddress());
 			}
 			if (this.getEntry().hasPhoneNumbers()) {
 				afterName = Constantes.PREFIXO_POS_CORRECAO + this.getEntry().getPhoneNumbers().get(0).getPhoneNumber();
