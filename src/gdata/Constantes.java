@@ -19,7 +19,7 @@ public class Constantes {
 	public static final String VIVO = "VIVO";
 
 	public static final String URL_CONTATOS = "https://www.google.com/m8/feeds/contacts/default/full";
-	public static final String URL_CONSULTA_OPERADORA = "https://www.qual-operadora.net/";
+	public static final String URL_CONSULTA_OPERADORA = "https://www.qual-operadora.net/#fb-root";
 	public static final String URL_GRUPOS = "https://www.google.com/m8/feeds/groups/default/full";
 	public static final String URL_BATCH_CONTATOS = "https://www.google.com/m8/feeds/contacts/default/full/batch";
 

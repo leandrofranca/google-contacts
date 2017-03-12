@@ -147,6 +147,7 @@ public class PhoneNumbers extends ChangeContact implements Callable<ContactEntry
 			error.append("\t");
 			error.append(urlParameters);
 			LOGGER.severe(error.toString());
+			LOGGER.severe(e.getMessage());
 			retorno = null;
 		} finally {
 			if (connection != null) {

@@ -66,7 +66,7 @@ public class Contacts {
 		info.append(" contatos encontrados.");
 		LOGGER.info(info.toString());
 
-		final ExecutorService executorService = Executors.newFixedThreadPool(50);
+		final ExecutorService executorService = Executors.newFixedThreadPool(20);
 		final Set<Future<ContactEntry>> listaRetornoThread = new HashSet<Future<ContactEntry>>();
 
 		final long totalContatos = contactFeed.getEntries().size();

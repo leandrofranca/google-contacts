@@ -1,10 +1,13 @@
 package gdata;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -58,7 +61,7 @@ public class Connector {
 		System.setProperty("java.net.useSystemProxies", "false");
 
 		final GoogleClientSecrets clientSecret = GoogleClientSecrets.load(JSON_FACTORY,
-				new InputStreamReader(Connector.class.getResourceAsStream("/client_secret.json")));
+				new InputStreamReader(FileUtils.openInputStream(new File("./client_secret.json"))));
 		final GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY,
 				clientSecret, SCOPES).setDataStoreFactory(DATA_STORE_FACTORY).build();
 		return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize(username);
